@@ -1,0 +1,19 @@
+import canonicalLaneMathlib.AdmissibleClass
+import ChemicalEngineeringProcessOptimizationTheoremCanonicalLaneLean.ProcessKineticsPackage
+import ChemicalEngineeringProcessOptimizationTheoremCanonicalLaneLean.ThermodynamicEquilibriumPackage
+import ChemicalEngineeringProcessOptimizationTheoremCanonicalLaneLean.TransportPhenomenaPackage
+import ChemicalEngineeringProcessOptimizationTheoremCanonicalLaneLean.ReactorDesignPackage
+import ChemicalEngineeringProcessOptimizationTheoremCanonicalLaneLean.SeparationProcessPackage
+
+namespace HautevilleHouse
+namespace ChemicalEngineeringProcessOptimizationTheoremCanonicalLaneLean
+
+def ConstrainedProcessOptimizationClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_process_optimization_endgame (A : AdmissibleClass) :
+    ConstrainedProcessOptimizationClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end ChemicalEngineeringProcessOptimizationTheoremCanonicalLaneLean
+end HautevilleHouse
